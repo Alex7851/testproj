@@ -1,6 +1,7 @@
 ---
 slug: "/blog/my-first-post"
-
+title: "mytitle"
+date: "13-02-2021"
 ---
 
 <!-- <link href="../styles/style.css" rel="stylesheet"></link> -->
