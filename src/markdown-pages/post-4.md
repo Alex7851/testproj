@@ -10,7 +10,6 @@ I'm champion
 
 
 ## 3)  установить JAVA и задать переменную JAVA_HOME (для генерации shibboleth) 
-## 3)  установить JAVA и задать переменную JAVA_HOME (для генерации shibboleth)
 **установка JAVA:**
 ```
 sudo apt update  
