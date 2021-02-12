@@ -4,42 +4,36 @@ title: "mytitle"
 date: "14-02-2021"
 ---
 
-<!-- <link href="../styles/style.css" rel="stylesheet"></link> -->
-Hello World! <br>
-I'm champion
+## 1) выкачать проект на сервер 
+## 2) установить docker и docker-compose
+ **docker:** https://docs.docker.com/engine/install/ubuntu/  
+**docker-compose:** https://docs.docker.com/compose/install/ 
 
-# Окружение однако yjf1qw1234567y8y77
+## 3) установить JAVA и задать переменную JAVA_HOME (для генерации shibboleth)  
+**установка JAVA:**
+```
+sudo apt update  
+sudo apt install default-jre
+```
+**установка переменной JAVA_HOME:**
 
-Ubuntu 19.04  
-Firefox (72.0.1), Yandex br. (19.12.3.332 beta), Opera (66.0.3515.103), Google Chrome (80.0.3987.100)  
-Стенд: IP 172.17.2.212  
-Сборка/последний коммит: 
+- узнать путь каталогу JAVA 
+```
+sudo update-alternatives --config java
+```
 
+- скопировать путь до папки bin (саму папку bin в путь не включать)
 
-## Предусловия
+- открыть файл переменных окружения
 
-
-
-
-# Шаги
-
-1. Перейти к форме авторизации в сервисе
-1. Выбрать в виджете авторизации провайдера "Мегафон"
-1. Ввести номер телефона без привязанной к нему МЭП
-
-
-
-
-
-### Ожидаемый результат
-
-Форма содержит сообщение об ошибке вида "Телефон не найден"
-
-## Фактический результат
-
-Форма содержит сообщение об ошибке  "error.phone_not_found"
-
-***Фото***:  
-
-
-![image](/uploads/89ab5d813cc20d656c3d1a64bcf724c9/image.png)
+```
+sudo vi /etc/environment
+```
+- в открывшемся файле добавить переменную JAVA_HOME и сохранить файл
+```
+JAVA_HOME="<путь до папки с JAVA>"
+```
+- выполнить команду 
+```
+sudo source /etc/environment
+```
