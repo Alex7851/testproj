@@ -1,7 +1,7 @@
 ---
-slug: "/blog/my-five-post"
+slug: "/blog/my-seven-post"
 title: "mytitle"
-date: "13-02-2021"
+date: "14-02-2021"
 ---
 
 <!-- <link href="../styles/style.css" rel="stylesheet"></link> -->
@@ -14,7 +14,7 @@ Ubuntu 19.04
 Firefox (72.0.1), Yandex br. (19.12.3.332 beta), Opera (66.0.3515.103), Google Chrome (80.0.3987.100)  
 Стенд: IP 172.17.2.212  
 Сборка/последний коммит: 
-dddddd
+
 
 ## Предусловия
 
