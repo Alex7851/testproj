@@ -1,4 +1,5 @@
 import React from "react"
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql, StaticQuery, useStaticQuery } from "gatsby"
 import './styles.css'
 import Layout from "../components/layout"
@@ -45,6 +46,7 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
+        date
       }
     }
   },

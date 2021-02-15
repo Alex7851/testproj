@@ -1,7 +1,7 @@
 ---
 slug: "/blog/my-five-post"
 title: "mytitle"
-date: "13-02-2021"
+date: 2020-09-01
 ---
 
 <!-- <link href="../styles/style.css" rel="stylesheet"></link> -->

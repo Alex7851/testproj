@@ -1,7 +1,7 @@
 ---
 slug: "/blog/my-forth-post"
 title: "mytitle"
-date: "14-02-2021"
+date: 2020-09-01
 ---
 
 dsff
