@@ -4,7 +4,6 @@ import { graphql, StaticQuery, useStaticQuery } from "gatsby"
 import './styles.css'
 import Layout from "../components/layout"
 
-
 // export  function Read() {
 //   return (
 // <StaticQuery
@@ -94,7 +93,6 @@ export default function Template({
       return (
          <Layout>
  <MDXRenderer>{body}</MDXRenderer>
-        
           </Layout>
         
       ) 

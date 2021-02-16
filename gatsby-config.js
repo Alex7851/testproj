@@ -6,23 +6,22 @@ module.exports = {
   },
   plugins: [
     {
-            resolve: `gatsby-plugin-mdx`,
-            options: {
-                extensions: [`.mdx`, `.md`],
-                gatsbyRemarkPlugins:[
-                  {
-                    resolve: `gatsby-remark-classes`,
-                    options: {
-                      classMap: {
-                        "heading[depth=1]": "mystyle1",
-                        "heading[depth=2]": "mystyle2",
-                        "paragraph": "text-base"
-                      }
-                    }
-                  }
-                ]
-            },
-
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+          extensions: [`.mdx`, `.md`],
+          gatsbyRemarkPlugins:[
+            {
+              resolve: `gatsby-remark-classes`,
+              options: {
+                classMap: {
+                  "heading[depth=1]": "mystyle1",
+                  "heading[depth=2]": "mystyle2",
+                  "paragraph": "text-base"
+                }
+              }
+            }
+          ]
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

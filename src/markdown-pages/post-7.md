@@ -1,6 +1,6 @@
 ---
 slug: "/blog/my-seven-post"
-title: "mytitle"
+title: "my-seven-post"
 date: 2020-09-01
 ---
 

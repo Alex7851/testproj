@@ -62,6 +62,8 @@ export const query = graphql
 const HomePage = ({ data }) => {
     return (
         <div>
+         <Layout>
+
             <div>
             </div>
 
@@ -76,6 +78,8 @@ const HomePage = ({ data }) => {
                     </div>
                 ))}
             </div>
+         </Layout>
+
         </div>
     )
 }

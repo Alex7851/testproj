@@ -1,6 +1,6 @@
 ---
 slug: "/blog/my-forth-post"
-title: "mytitle"
+title: "my forth post"
 date: 2020-09-01
 ---
 
