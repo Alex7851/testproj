@@ -39,19 +39,23 @@ import Layout from "../components/layout"
 // }
 
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        slug
-        title
-        date
-      }
+export const query = graphql`
+      
+    query PostsByID($id: String!) {
+        mdx(
+            id: { eq: $id }
+        ){
+            html
+            body
+            frontmatter {
+                title
+                date(formatString: "YYYY MMMM Do")
+            }
+        }
     }
-  },
+`
    
- `
+ 
 // export  function Header() {
 //   const data = useStaticQuery(graphql`
 //     query HeaderQuery {
@@ -63,7 +67,6 @@ export const pageQuery = graphql`
 //     },
 
 //   `)}
-console.log (pageQuery)
 // export  function Read() {
 //   return (
 //       <StaticQuery
@@ -86,17 +89,11 @@ console.log (pageQuery)
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-      const { markdownRemark } = data // data.markdownRemark holds our post data
-      const { frontmatter, html } = markdownRemark
+      const { frontmatter, html, body } = data.mdx
       return (
          <Layout>
-
-        <div> {frontmatter.title}
-          <div 
-              dangerouslySetInnerHTML={{ __html: html }}
-            >
-          </div>
-        </div>
+ <MDXRenderer>{body}</MDXRenderer>
+        
           </Layout>
         
       ) 

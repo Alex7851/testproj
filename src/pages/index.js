@@ -36,23 +36,25 @@ import Layout from "../components/layout"
 
 export const query = graphql
 `
-    query SITE_INDEX_QUERY ($slug: String!) {
-        allSitePage(filter: {id:{regex:"/blog/"}}) {
-              edges {
-                node {
-                  id
-                  path
-                }
+    query SITE_INDEX_QUERY {
+        site {
+            siteMetadata {
+              title
+              description
+            }
+          }
+          allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
+            nodes {
+              id
+              excerpt(pruneLength: 250)
+              frontmatter {
+                title
+                date
+              }
+              fields {
+                slug
               }
             }
-          markdownRemark(
-          frontmatter: { slug: { eq: $slug } }
-        )  {
-            html
-              frontmatter {
-                slug
-                title
-              }
           }
     }
 `
@@ -61,7 +63,6 @@ const HomePage = ({ data }) => {
     return (
         <div>
             <div>
-                <h1>{data.allSitePage.edges.node.id}</h1>
             </div>
 
             <div>

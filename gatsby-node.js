@@ -1,37 +1,53 @@
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
-  const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.js`)
+exports.onCreateNode = ({ node, actions, getNode }) => {
+    const { createNodeField } = actions
 
-  return graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              slug
-            }
-          }
-        }
-      }
+    if (node.internal.type === `Mdx`) {
+        const value = createFilePath({ node, getNode })
+
+        createNodeField({
+            name: `slug`,
+            node,
+            value: `/posts${value}`,
+        })
     }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
-
-    return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.frontmatter.slug,
-        component: blogPostTemplate,
-        context: {
-          // additional data can be passed via context
-          slug: node.frontmatter.slug,
-        },
-      })
-    })
-  })
 }
+
+const path = require("path")
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+    const { createPage } = actions
+
+    const result = await graphql
+    (`
+        query {
+            allMdx {
+                edges {
+                    node {
+                        id
+                        fields {
+                        slug
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    if (result.errors) {
+        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+    }
+
+    // Create blog post pages.
+    const posts = result.data.allMdx.edges
+
+    posts.forEach(({ node }, index) => {
+        createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/blogTemplate.js`),
+            context: { id: node.id },
+        })
+    })
+}
+

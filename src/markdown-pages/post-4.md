@@ -5,7 +5,7 @@ date: 2020-09-01
 ---
 
 dsff
-Hello World! <br>
+Hello World! 
 I'm championdff
 xxxx
 
@@ -38,7 +38,7 @@ JAVA_HOME="<путь до папки с JAVA>"
 sudo source /etc/environment
 ```
 dsff
-Hello World! <br>
+Hello World!
 I'm championdff
 xxxx
 
