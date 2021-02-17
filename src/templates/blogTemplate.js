@@ -48,16 +48,14 @@ export const query = graphql`
             body
             frontmatter {
                 title
-                date(formatString: "YYYY MMMM Do")
             }
         }
-        allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
+        allMdx(sort: {fields: [frontmatter___title], order: DESC}) {
             nodes {
               id
               excerpt(pruneLength: 250)
               frontmatter {
                 title
-                date
               }
               fields {
                 slug
@@ -108,11 +106,10 @@ export default function Template({
         <div class="wrapper">
          <div class="sidebar">
                 {data.allMdx.nodes.map(({ excerpt, frontmatter, fields }) => (
-                    <div>
+                    <div class="par">
                     <Link to={fields.slug}>
                         {frontmatter.title}
                     </Link>
-                        <p>{frontmatter.date}</p>
                         <p></p>
                     </div>
                 ))}

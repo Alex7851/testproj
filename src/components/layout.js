@@ -29,15 +29,14 @@ const Layout = ({ children }) => (
         <div
           style={{
             margin: `0 0 0`,
-            paddingTop: 0,
-            position: 'relative'
+            padding: '70px 0px 45px 0px ',
           }}
         >
           {children}
           
         </div>
           <footer style={{
-      background: `rebeccapurple`,
+      background: `#CCD1D1`,
       padding: '10px 0px 10px',
       color:'white',
       textAlign:'center',

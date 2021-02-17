@@ -1,7 +1,9 @@
 import React from "react"
-import { Link, StaticQuery, graphql } from "gatsby"
-
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { graphql, StaticQuery, useStaticQuery, Link } from "gatsby"
+import '../templates/styles.css'
 import Layout from "../components/layout"
+
 
     // export default () => (
     //   <StaticQuery
@@ -43,13 +45,12 @@ export const query = graphql
               description
             }
           }
-          allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
+          allMdx(sort: {fields: [frontmatter___title], order: DESC}) {
             nodes {
               id
               excerpt(pruneLength: 250)
               frontmatter {
                 title
-                date
               }
               fields {
                 slug
@@ -63,22 +64,20 @@ const HomePage = ({ data }) => {
     return (
         <div>
          <Layout>
-
-            <div>
-            </div>
-
-            <div>
-                {data.allMdx.nodes.map(({ excerpt, frontmatter, fields }) => (
-                    <div>
+        <div class="wrapper">
+         
+          <div class="right empty">
+            {data.allMdx.nodes.map(({ excerpt, frontmatter, fields }) => (
+                    <div class="par">
                     <Link to={fields.slug}>
-                        <h1>{frontmatter.title}</h1>
+                        {frontmatter.title}
                     </Link>
-                        <p>{frontmatter.date}</p>
                         <p></p>
                     </div>
                 ))}
-            </div>
-         </Layout>
+          </div>
+        </div>
+      </Layout>
 
         </div>
     )
