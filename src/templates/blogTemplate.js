@@ -1,6 +1,6 @@
 import React from "react"
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { graphql, StaticQuery, useStaticQuery } from "gatsby"
+import { graphql, StaticQuery, useStaticQuery, Link } from "gatsby"
 import './styles.css'
 import Layout from "../components/layout"
 
@@ -51,6 +51,19 @@ export const query = graphql`
                 date(formatString: "YYYY MMMM Do")
             }
         }
+        allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
+            nodes {
+              id
+              excerpt(pruneLength: 250)
+              frontmatter {
+                title
+                date
+              }
+              fields {
+                slug
+              }
+            }
+          }
     }
 `
    
@@ -92,6 +105,17 @@ export default function Template({
       const { body } = data.mdx
       return (
          <Layout>
+         <div>
+                {data.allMdx.nodes.map(({ excerpt, frontmatter, fields }) => (
+                    <div>
+                    <Link to={fields.slug}>
+                        <h1>{frontmatter.title}</h1>
+                    </Link>
+                        <p>{frontmatter.date}</p>
+                        <p></p>
+                    </div>
+                ))}
+            </div>
  <MDXRenderer>{body}</MDXRenderer>
           </Layout>
         
