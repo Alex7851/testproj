@@ -9,12 +9,12 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
           extensions: [`.mdx`, `.md`],
-          globalScope: `
-            import *  as Components from 'rebass'
-            export default { 
-              ...Components 
-            }
-          `,
+          // globalScope: `
+          //   import *  as Components from 'rebass'
+          //   export default { 
+          //     ...Components 
+          //   }
+          // `,
           gatsbyRemarkPlugins:[
             {
               resolve: `gatsby-remark-classes`,
