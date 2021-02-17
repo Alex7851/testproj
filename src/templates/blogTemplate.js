@@ -104,20 +104,24 @@ export default function Template({
       const { frontmatter, html} = data
       const { body } = data.mdx
       return (
-         <Layout>
-         <div>
+      <Layout>
+        <div class="wrapper">
+         <div class="sidebar">
                 {data.allMdx.nodes.map(({ excerpt, frontmatter, fields }) => (
                     <div>
                     <Link to={fields.slug}>
-                        <h1>{frontmatter.title}</h1>
+                        {frontmatter.title}
                     </Link>
                         <p>{frontmatter.date}</p>
                         <p></p>
                     </div>
                 ))}
-            </div>
- <MDXRenderer>{body}</MDXRenderer>
-          </Layout>
+          </div>
+          <div class="right">
+            <MDXRenderer>{body}</MDXRenderer>
+          </div>
+        </div>
+      </Layout>
         
       ) 
     }

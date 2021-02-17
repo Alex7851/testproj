@@ -1,7 +1,6 @@
 ---
-slug: "/blog/my-first-post"
+slug: "/post1"
 title: "my first post"
-date: 2020-09-01
 ---
 
 <!-- <link href="../styles/style.css" rel="stylesheet"></link> -->
