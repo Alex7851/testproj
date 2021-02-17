@@ -7,6 +7,8 @@
   display: flex;
   flex-flow: row nowrap;
   height: 100%;
+  position: relative;
+  padding: 70px, auto, 45px;
 }
 .wrapper .sidebar {
   box-sizing: border-box;
@@ -16,7 +18,7 @@
   display: inline-block;
   width: 20%;
   height: auto;
-  background: #7f40bf;
+  background: #9400d3;
 }
 .wrapper .sidebar a {
   font-size: 25px;

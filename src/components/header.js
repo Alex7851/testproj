@@ -6,14 +6,23 @@ const Header = ({ siteTitle }) => (
   <header
     style={{
       background: `rebeccapurple`,
-      margin: '0 0px 0'
+      margin: '0 0px 0',
+      position: 'fixed',
+         top:'0',
+        height:'70px',
+        zIndex: '100',
+        width: '100%'
+        // display: 'inlineBlock'
     }}
   >
     <div
       style={{
         margin: `0 100`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        maxWidth: '100%',
+        padding: `0.55rem 1.0875rem`,
+        textAlign: 'center',
+        
+
       }}
     >
       <h1 style={{ margin: 0 }}>
